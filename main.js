@@ -1,15 +1,16 @@
-function alignVertical(){
-    var that = $("#logo");
+function alignVertical(e){
+    var that = $(e);
     var height = that.height();
     var parentHeight = $(window).height();
-    var padAmount = (parentHeight / 2) - (height/2);
+    var padAmount = (parentHeight / 2) - (height/2) - 35;
     that.css("margin-top", padAmount);
 }
 
 $(document).ready(function() {
     $("#about-section").hide();
     $("#contact-section").hide();
-    alignVertical();
+    alignVertical("#logo");
+    alignVertical(".scrollable-image");
     $(window).scroll(function() {
         var winSTop = $(window).scrollTop();
         var winH = $(window).height() + $("#curved-border").height();
@@ -26,14 +27,15 @@ $(document).ready(function() {
         else {
             $("#about-section").hide();
             $("#logo-hero").show();
-            alignVertical();
+            alignVertical("#logo");
         }
     });
     $(window).resize(function() {
         var winSTop = $(window).scrollTop();
         var winH = $(window).height() + $("#curved-border").height();
         if(winSTop <= winH) {
-            alignVertical();
+            alignVertical("#logo");
         }
+        alignVertical(".scrollable-image");
     });
 });

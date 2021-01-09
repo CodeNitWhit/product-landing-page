@@ -46,7 +46,6 @@
 }
 
 .scroll-section-container {
-    background-color:purple;
     height:90vh;
     width: 90vw;
     max-width: 90vw;
@@ -56,6 +55,13 @@
     left:49%;
     transform:translate(-50%, -50%);
     z-index:2;
+}
+
+.scrollable-image {
+    width: 100%;
+    max-width: 100%;
+    max-height:100%;
+    box-shadow: 0 0 8px 8px grey;
 }
 
 #scroll-section-1 {
@@ -71,6 +77,32 @@
 #extender {
     height:100vh;
     background:transparent;
+}
+
+#fixed-placeholder {
+    text-align: center;
+    font-size:100px;
+    width:100px;
+    height:100px;
+    color:red;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    z-index:1;
+}
+
+#fixed-placeholder2 {
+    text-align: center;
+    font-size:100px;
+    width:100px;
+    height:100px;
+    color:red;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    z-index:1;
 }
 
 #logo-hero {
