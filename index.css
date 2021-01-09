@@ -1,3 +1,33 @@
+
+#nicotine-warning-container {
+    width: auto;
+    height: auto;
+    background-color: white;
+    border-style:solid;
+    border-width: 3px;
+    border-color: black;
+    position: fixed;
+    top:5px;
+    right: 5px;
+    z-index:3;
+}
+
+.nicotine-warning-text {
+    font-size: small;
+    font-weight:normal;
+    color: black;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#nicotine-warning {
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    padding:0;
+    margin: 0;
+}
+
 #curved-border {
     margin:0;
     margin-bottom: -10px;
