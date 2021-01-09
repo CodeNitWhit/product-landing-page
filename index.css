@@ -74,7 +74,7 @@
 }
 
 #logo-hero {
-    background: radial-gradient(circle, white, lightgrey, grey, darkslategrey);
+    background: radial-gradient(circle, white, grey, darkslategrey);
     position:fixed;
     top:50%;
     left:50%;
