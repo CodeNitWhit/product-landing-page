@@ -6,11 +6,25 @@ function alignVertical(e){
     that.css("margin-top", padAmount);
 }
 
+function alignIcon(e) {
+    var that = $(e);
+    var height = that.height();
+    var iconHeight = $(window).width() * 0.15;
+    var padAmount = (height/ 2) - (iconHeight/2);
+    that.css("padding-top", padAmount);
+}
+
 $(document).ready(function() {
     $("#about-section").hide();
     $("#contact-section").hide();
     alignVertical("#logo");
-    alignVertical(".scrollable-image");
+    if ($(window).width() > $(window).height()) {
+        alignVertical(".scrollable-image");
+        alignIcon("#vial-icon");
+        alignIcon("#vial-icon2");
+        alignIcon("#dropper-icon");
+        alignIcon("#dropper-icon2");
+    }
     $(window).scroll(function() {
         var winSTop = $(window).scrollTop();
         var winH = $(window).height() + $("#curved-border").height();
@@ -36,6 +50,12 @@ $(document).ready(function() {
         if(winSTop <= winH) {
             alignVertical("#logo");
         }
-        alignVertical(".scrollable-image");
+        if ($(window).width() > $(window).height()) {
+            alignVertical(".scrollable-image");
+            alignIcon("#vial-icon");
+            alignIcon("#vial-icon2");
+            alignIcon("#dropper-icon");
+            alignIcon("#dropper-icon2");
+        }
     });
 });
