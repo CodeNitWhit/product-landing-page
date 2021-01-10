@@ -1,36 +1,7 @@
-function alignToWindow(e){
-    var that = $(e);
-    var height = that.height();
-    var parentHeight = $(window).height();
-    var padAmount = (parentHeight / 2) - (height/2) - 35;
-    that.css("margin-top", padAmount);
-}
-
-function alignScrollIcon(e) {
-    var that = $(e);
-    var height = that.height();
-    var iconHeight = $(window).width() * 0.15;
-    var padAmount = (height/ 2) - (iconHeight/2);
-    that.css("padding-top", padAmount);
-}
-
-function alignEverything() {
-    alignToWindow("#logo");
-    if ($(window).width() > $(window).height()) {
-        alignToWindow(".scrollable-image");
-        alignScrollIcon("#vial-icon");
-        alignScrollIcon("#vial-icon2");
-        alignScrollIcon("#dropper-icon");
-        alignScrollIcon("#dropper-icon2");
-    }
-
-}
-
-
 $(document).ready(function() {
+    alignEverything();
     $("#about-section").hide();
     $("#contact-section").hide();
-    alignEverything();
     $(window).scroll(function() {
         var winSTop = $(window).scrollTop();
         var winH = $(window).height() + $("#curved-border").height();
@@ -47,15 +18,55 @@ $(document).ready(function() {
         else {
             $("#about-section").hide();
             $("#logo-hero").show();
-            alignToWindow("#logo");
+            alignToWindowLandscape("#logo");;
         }
     });
     $(window).resize(function() {
         var winSTop = $(window).scrollTop();
         var winH = $(window).height() + $("#curved-border").height();
         if(winSTop <= winH) {
-            alignToWindow("#logo");
+            alignToWindowLandscape("#logo");
         }
         alignEverything();
     });
 });
+
+
+function alignToWindowLandscape(e){
+    var that = $(e);
+    var height = that.height();
+    var parentHeight = $(window).height();
+    var padAmount = (parentHeight / 2) - (height/2);
+    that.css("margin-top", padAmount);
+}
+
+function alignScrollIconLandscape(e) {
+    var that = $(e);
+    var height = that.height();
+    var iconHeight = $(window).width() * 0.2;
+    var padAmount = (height/ 2) - (iconHeight/2);
+    that.css("padding-top", padAmount);
+}
+
+function alignScrollIconPortrait(e) {
+    var height = e.height();
+    var parentHeight = $(window).height();
+    var padAmount = (parentHeight / 2) - (height/2);
+    e.css("padding-top" , padAmount);
+}
+
+function alignEverything() {
+    alignToWindowLandscape("#logo");
+    if ($(window).width() >= $(window).height()) {
+        alignToWindowLandscape(".scrollable-image");
+        alignToWindowLandscape(".about-sec-item");
+        alignScrollIconLandscape("#vial-icon");
+        alignScrollIconLandscape("#vial-icon2");
+        alignScrollIconLandscape("#dropper-icon");
+        alignScrollIconLandscape("#dropper-icon2");
+    }
+    else {
+        alignScrollIconPortrait("#vial-icon");
+        alignScrollIconPortrait("#vial-icon2");
+    }
+}
