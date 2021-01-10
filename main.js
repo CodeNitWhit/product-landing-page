@@ -1,4 +1,4 @@
-function alignVertical(e){
+function alignToWindow(e){
     var that = $(e);
     var height = that.height();
     var parentHeight = $(window).height();
@@ -6,7 +6,7 @@ function alignVertical(e){
     that.css("margin-top", padAmount);
 }
 
-function alignIcon(e) {
+function alignScrollIcon(e) {
     var that = $(e);
     var height = that.height();
     var iconHeight = $(window).width() * 0.15;
@@ -14,17 +14,23 @@ function alignIcon(e) {
     that.css("padding-top", padAmount);
 }
 
+function alignEverything() {
+    alignToWindow("#logo");
+    if ($(window).width() > $(window).height()) {
+        alignToWindow(".scrollable-image");
+        alignScrollIcon("#vial-icon");
+        alignScrollIcon("#vial-icon2");
+        alignScrollIcon("#dropper-icon");
+        alignScrollIcon("#dropper-icon2");
+    }
+
+}
+
+
 $(document).ready(function() {
     $("#about-section").hide();
     $("#contact-section").hide();
-    alignVertical("#logo");
-    if ($(window).width() > $(window).height()) {
-        alignVertical(".scrollable-image");
-        alignIcon("#vial-icon");
-        alignIcon("#vial-icon2");
-        alignIcon("#dropper-icon");
-        alignIcon("#dropper-icon2");
-    }
+    alignEverything();
     $(window).scroll(function() {
         var winSTop = $(window).scrollTop();
         var winH = $(window).height() + $("#curved-border").height();
@@ -41,21 +47,15 @@ $(document).ready(function() {
         else {
             $("#about-section").hide();
             $("#logo-hero").show();
-            alignVertical("#logo");
+            alignToWindow("#logo");
         }
     });
     $(window).resize(function() {
         var winSTop = $(window).scrollTop();
         var winH = $(window).height() + $("#curved-border").height();
         if(winSTop <= winH) {
-            alignVertical("#logo");
+            alignToWindow("#logo");
         }
-        if ($(window).width() > $(window).height()) {
-            alignVertical(".scrollable-image");
-            alignIcon("#vial-icon");
-            alignIcon("#vial-icon2");
-            alignIcon("#dropper-icon");
-            alignIcon("#dropper-icon2");
-        }
+        alignEverything();
     });
 });

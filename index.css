@@ -1,4 +1,12 @@
+/*-------------------------GLOBAL-------------------------*/
+.full-section {
+    width:100vw;
+    height:100vh;
+    margin:0;
+    padding:0;
+}
 
+/*-------------------------NICOTINE WARNING-------------------------*/
 #nicotine-warning-container {
     width: auto;
     height: auto;
@@ -28,42 +36,7 @@
     margin: 0;
 }
 
-#curved-border {
-    margin:0;
-    margin-bottom: -10px;
-    width: 100vw;
-
-}
-
-#curved-border2 {
-    margin:0;
-    margin-top: -3px;
-    width: 100vw;
-    transform:rotate(180deg);
-}
-
-#curved-border3 {
-    margin:0;
-    margin-bottom: -10px;
-    width: 100vw;
-    position: relative;
-    top: 100vh;
-}
-
-#curved-border4 {
-    margin:0;
-    margin-top: -3px;
-    width: 100vw;
-    transform:rotate(180deg);
-}
-
-.full-section {
-    width:100vw;
-    height:100vh;
-    margin:0;
-    padding:0;
-}
-
+/*-------------------------SCROLLABLE CONTAINER-------------------------*/
 #scrollables-container {
     position: relative;
     top: 100vh;
@@ -77,15 +50,48 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+    height:100vh;
+    width: 100vw;
+    max-width: 100vw;
+    max-height:100vh;
+    z-index:2;
 }
 
-.vial {
-    font-size: 15vw;
-    text-align: center;
-    width: 20%;
+#scroll-section-1 {
+
 }
 
-.dropp {
+#scroll-section-2 {
+    position: relative;
+    top: 100vh;
+    margin-bottom:100vh;
+}
+
+#extender {
+    height:100vh;
+    background:transparent;
+}
+
+/*-------------------------Scrollable Decor-------------------------*/
+.top-border {
+    margin:0;
+    margin-bottom: -10px;
+    width: 100vw;
+}
+
+.bottom-border {
+    margin:0;
+    margin-top: -3px;
+    width: 100vw;
+    transform:rotate(180deg);
+}
+
+#curved-border3 {
+    position: relative;
+    top: 100vh;
+}
+
+.scroll-icon {
     font-size: 15vw;
     text-align: center;
     width: 20%;
@@ -124,13 +130,7 @@
         flex-wrap: nowrap;
         justify-content: space-between;
     }
-    .vial {
-        font-size: 15vh;
-        text-align: center;
-        height: 20%;
-        margin:0 auto;
-    }
-    .dropp {
+    .scroll-icon {
         font-size: 15vh;
         text-align: center;
         height: 20%;
@@ -147,28 +147,50 @@
     }
 }
 
-.scroll-section-container {
-    height:100vh;
-    width: 100vw;
-    max-width: 100vw;
-    max-height:100vh;
-    z-index:2;
+/*-------------------------FIXED SECTIONS-------------------------*/
+.fixed-section {
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    z-index:0;
 }
 
-
-#scroll-section-1 {
-
+#logo-hero {
+    background: radial-gradient(circle, white, grey, darkslategrey);
 }
 
-#scroll-section-2 {
-    position: relative;
-    top: 100vh;
-    margin-bottom:100vh;
+#about-section {
+    background-color: darkgray;
 }
 
-#extender {
-    height:100vh;
-    background:transparent;
+#contact-section {
+    background-color: darkslategrey;
+}
+
+#logo {
+    width: 80vw;
+    max-width: 80vw;
+    max-height:80vh;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    margin-right:auto;
+    margin-left:auto;
+    -webkit-animation-name: spin;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-duration: 7s;
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
 }
 
 #fixed-placeholder {
@@ -195,59 +217,4 @@
     left:50%;
     transform:translate(-50%, -50%);
     z-index:1;
-}
-
-#logo-hero {
-    background: radial-gradient(circle, white, grey, darkslategrey);
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    z-index:0;
-}
-
-#logo {
-    width: 80vw;
-    max-width: 80vw;
-    max-height:80vh;
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    margin-right:auto;
-    margin-left:auto;
-}
-
-#about-section {
-    background-color: darkgray;
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    z-index:0;
-}
-
-@-webkit-keyframes spin {
-    from {
-        -webkit-transform: rotate(0deg);
-    }
-    to {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-#logo {
-    -webkit-animation-name: spin;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-duration: 7s;
-}
-
-#contact-section {
-    background-color: darkslategrey;
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    z-index:0;
 }
