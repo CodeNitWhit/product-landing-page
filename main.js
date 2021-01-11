@@ -22,15 +22,34 @@ $(document).ready(function() {
         }
     });
     $(window).resize(function() {
-        var winSTop = $(window).scrollTop();
-        var winH = $(window).height() + $("#curved-border").height();
-        if(winSTop <= winH) {
-            alignToWindowLandscape("#logo");
-        }
         alignEverything();
     });
 });
 
+
+function alignEverything() {
+    var winSTop = $(window).scrollTop();
+    var winH = $(window).height() + $("#curved-border").height();
+    if(winSTop <= winH) {
+        alignToWindowLandscape("#logo");
+    }
+    $(".scroll-icon").css("padding-top", 0);
+    $(".scrollable-image").css("margin-top", 0);
+    $(".about-sec-item").css("margin-top", 0);
+    if (window.matchMedia('(orientation: landscape)').matches) {
+        alignToWindowLandscape(".scrollable-image");
+        alignScrollIconLandscape("#vial-icon");
+        alignScrollIconLandscape("#vial-icon2");
+        alignScrollIconLandscape("#dropper-icon");
+        alignScrollIconLandscape("#dropper-icon2");
+        alignToWindowLandscape(".about-sec-item");
+    }
+    else if (window.matchMedia('(orientation: portrait)').matches) {
+        alignScrollIconPortrait("#vial-icon");
+        alignScrollIconPortrait("#vial-icon2");
+    }
+    alignToWindowLandscape("#logo");
+}
 
 function alignToWindowLandscape(e){
     var that = $(e);
@@ -53,20 +72,4 @@ function alignScrollIconPortrait(e) {
     var parentHeight = $(window).height();
     var padAmount = (parentHeight / 2) - (height/2);
     e.css("padding-top" , padAmount);
-}
-
-function alignEverything() {
-    alignToWindowLandscape("#logo");
-    if ($(window).width() >= $(window).height()) {
-        alignToWindowLandscape(".scrollable-image");
-        alignToWindowLandscape(".about-sec-item");
-        alignScrollIconLandscape("#vial-icon");
-        alignScrollIconLandscape("#vial-icon2");
-        alignScrollIconLandscape("#dropper-icon");
-        alignScrollIconLandscape("#dropper-icon2");
-    }
-    else {
-        alignScrollIconPortrait("#vial-icon");
-        alignScrollIconPortrait("#vial-icon2");
-    }
 }
