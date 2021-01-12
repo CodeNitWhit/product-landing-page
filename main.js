@@ -1,14 +1,3 @@
-$(document).ready(function() {
-    alignEverything();
-    hideSections();
-    $(window).scroll(function() {
-        hideSections();
-    });
-    $(window).resize(function() {
-        alignEverything();
-    });
-});
-
 function hideSections() {
     var winSTop = $(window).scrollTop();
     var winH = $(window).height() + $("#curved-border").height();
@@ -18,16 +7,16 @@ function hideSections() {
     $("#contact-section").hide();
     if(winSTop > winH2) {
         $("#contact-section").show();
-    }
-    else if(winSTop > winH) {
+    } else if(winSTop > winH) {
         $("#about-section").show();
-    }
-    else {
+        if (window.matchMedia('(orientation: landscape)').matches) {
+            alignToWindowLandscape(".about-sec-item");
+        }
+    } else {
         $("#logo-hero").show();
         alignToWindowLandscape("#logo");;
     }
 }
-
 
 function alignEverything() {
     var winSTop = $(window).scrollTop();
@@ -37,16 +26,13 @@ function alignEverything() {
     }
     $(".scroll-icon").css("padding-top", 0);
     $(".scrollable-image").css("margin-top", 0);
-    $(".about-sec-item").css("margin-top", 0);
-    if (window.matchMedia('(orientation: landscape)').matches || $(window).width() > $(window).height()) {
+    if(window.matchMedia('(orientation: landscape)').matches || $(window).width() > $(window).height()) {
         alignToWindowLandscape(".scrollable-image");
         alignScrollIconLandscape("#vial-icon");
         alignScrollIconLandscape("#vial-icon2");
         alignScrollIconLandscape("#dropper-icon");
         alignScrollIconLandscape("#dropper-icon2");
-        alignToWindowLandscape(".about-sec-item");
-    }
-    else if (window.matchMedia('(orientation: portrait)').matches || $(window).width() < $(window).height()) {
+    } else if(window.matchMedia('(orientation: portrait)').matches || $(window).width() < $(window).height()) {
         alignScrollIconPortrait("#vial-icon");
         alignScrollIconPortrait("#vial-icon2");
     }
@@ -72,3 +58,14 @@ function alignScrollIconPortrait(e) {
     var padAmount = (parentHeight / 2) - (height/2);
     e.css("padding-top" , padAmount);
 }
+
+$(document).ready(function() {
+    alignEverything();
+    hideSections();
+    $(window).scroll(function() {
+        hideSections();
+    });
+    $(window).resize(function() {
+        alignEverything();
+    });
+});
