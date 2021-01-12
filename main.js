@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $("#navDropdown").hide();
     if (window.matchMedia('(orientation: landscape)').matches) {
         alignEverything();
     }
@@ -9,6 +10,9 @@ $(document).ready(function() {
     });
     $(window).scroll(function() {
         hideSections();
+    });
+    $("#navbtn").click(function() {
+        $("#navDropdown").toggle();
     });
 });
 

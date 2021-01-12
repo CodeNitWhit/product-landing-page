@@ -15,7 +15,86 @@
 
 
 /*-------------------------STICKY/HIDDEN HEADER-------------------------*/
+#navbtn {
+    background-color: black;
+    border-color:grey;
+    border-style:solid;
+    border-width:5px;
+    border-radius:20%;
+    width: 100px;
+    height: 100px;
+    position:fixed;
+    top:5px;
+    left:5px;
+    z-index: 4;
+    box-shadow: 2px 2px 5px 3px white;
+    outline:none;
+    display:flex;
+    justify-content: space-evenly;
+    flex-direction:column;
+}
 
+.menu-btn-line {
+    width:80%;
+    height: 10%;
+    margin: 0 auto;
+    background-color:white;
+    border-style:none;
+    border-radius:15%;
+}
+
+#line1 {
+    background-color:#3BA484;
+}
+
+#line2 {
+    background-color:#343899;
+}
+
+#line3 {
+    background-color:#CE1584;
+}
+
+#navDropdown {
+    background-color: grey;
+    border-color:black;
+    border-style:solid;
+    border-width:5px;
+    border-radius:10%;
+    width: 250px;;
+    height: auto;
+    position:fixed;
+    top:105px;
+    left:5px;
+    display:flex;
+    flex-direction:column;
+    padding:10px;
+    z-index:4;
+}
+
+.dropdown-item {
+    font-family:'PermanentMarker-Regular';
+    font-size:xx-large;
+    padding-top:5px;
+    padding-bottom:5px;
+    text-align:center;
+}
+
+#home {
+    color:#F04D24;
+}
+
+#about-us {
+    color:#CE1584;
+}
+
+#products {
+    color:#343899;
+}
+
+#contact-us {
+    color:#3BA484;
+}
 
 /*-------------------------Nicotine Warning-------------------------*/
 #nicotine-warning-container {
@@ -202,7 +281,7 @@
 /*-------------------------Color Border-------------------------*/
 .colored-border {
     border: 30px solid;
-    border-image: repeating-linear-gradient(45deg, #D9D721, #E3A01F, #F04D24, #EE212C, #CE1584, #A41B93, #343899, #325D95, #3BA484 30px) 60;
+    border-image: repeating-linear-gradient(45deg, #F04D24, #EE212C, #CE1584, #A41B93, #343899, #325D95, #3BA484 30px) 60;
     border-image-slice: 1;
     box-shadow: 10px 10px 50px 40px black;
 }
@@ -255,7 +334,7 @@
     .about-sec-item {
         width:60%;
         max-height:25%;
-        align-self: center;
+        align-self: flex-end;;
     }
 }
 
