@@ -1,22 +1,15 @@
-function hideSections() {
-    var winSTop = $(window).scrollTop();
-    var winH = $(window).height() + $("#curved-border").height();
-    var winH2 = winH * 3;
-    $("#about-section").hide();
-    $("#logo-hero").hide();
-    $("#contact-section").hide();
-    if(winSTop > winH2) {
-        $("#contact-section").show();
-    } else if(winSTop > winH) {
-        $("#about-section").show();
-        if (window.matchMedia('(orientation: landscape)').matches) {
-            alignToWindowLandscape(".about-sec-item");
-        }
-    } else {
-        $("#logo-hero").show();
-        alignToWindowLandscape("#logo");;
+$(document).ready(function() {
+    if (window.matchMedia('(orientation: landscape)').matches) {
+        alignEverything();
     }
-}
+    hideSections();
+    $(window).resize(function() {
+        alignEverything();
+    });
+    $(window).scroll(function() {
+        hideSections();
+    });
+});
 
 function alignEverything() {
     var winSTop = $(window).scrollTop();
@@ -59,13 +52,22 @@ function alignScrollIconPortrait(e) {
     e.css("padding-top" , padAmount);
 }
 
-$(document).ready(function() {
-    alignEverything();
-    hideSections();
-    $(window).scroll(function() {
-        hideSections();
-    });
-    $(window).resize(function() {
-        alignEverything();
-    });
-});
+function hideSections() {
+    var winSTop = $(window).scrollTop();
+    var winH = $(window).height() + $("#curved-border").height();
+    var winH2 = winH * 3;
+    $("#about-section").hide();
+    $("#logo-hero").hide();
+    $("#contact-section").hide();
+    if(winSTop > winH2) {
+        $("#contact-section").show();
+    } else if(winSTop > winH) {
+        $("#about-section").show();
+        if (window.matchMedia('(orientation: landscape)').matches) {
+            alignToWindowLandscape(".about-sec-item");
+        }
+    } else {
+        $("#logo-hero").show();
+        alignToWindowLandscape("#logo");;
+    }
+}
