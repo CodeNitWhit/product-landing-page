@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'PermanentMarker-Regular';
+    src: url('PermanentMarker-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /*-------------------------!!!!!!!!!!!GLOBAL!!!!!!!!!!!!!!-------------------------*/
 .full-section {
     width:100vw;
@@ -192,6 +199,14 @@
     }
 }
 
+/*-------------------------Color Border-------------------------*/
+.colored-border {
+    border: 30px solid;
+    border-image: repeating-linear-gradient(45deg, #D9D721, #E3A01F, #F04D24, #EE212C, #CE1584, #A41B93, #343899, #325D95, #3BA484 30px) 60;
+    border-image-slice: 1;
+    box-shadow: 10px 10px 50px 40px black;
+}
+
 /*-------------------------About Section-------------------------*/
 #about-section {
     display: flex;
@@ -202,22 +217,46 @@
 }
 
 .about-sec-item {
-    width: 30%;
+    height:auto;
     min-width: 400px;
-    max-height:60%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 5px;
-    border-radius: 60px;
     background-color: #eaece5;
     margin: 10px;
+    overflow:
 }
 
-.about-sec-image {
+.about-sec-item h2 {
+    font-size: x-large;
+    font-family:'PermanentMarker-Regular';
+    padding:10px;
+    border-style:solid;
+    border-width:5px;
+    border-radius:30%;
+}
 
+.about-sec-item p {
+    font-size:medium;
+    font-family:'PermanentMarker-Regular';
+}
+
+@media (orientation:landscape) {
+    .about-sec-item {
+        width: 30%;
+        max-height:60%;
+    }
+}
+
+@media (orientation:portrait) {
+    .about-sec-item {
+        width:60%;
+        max-height:25%;
+        align-self: center;
+    }
 }
 
 

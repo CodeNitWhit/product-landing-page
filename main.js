@@ -5,6 +5,7 @@ $(document).ready(function() {
     hideSections();
     $(window).resize(function() {
         alignEverything();
+        hideSections();
     });
     $(window).scroll(function() {
         hideSections();
@@ -66,8 +67,11 @@ function hideSections() {
         if (window.matchMedia('(orientation: landscape)').matches) {
             alignToWindowLandscape(".about-sec-item");
         }
+        else {
+            $(".about-sec-item").css("margin-top", 0);
+        }
     } else {
         $("#logo-hero").show();
-        alignToWindowLandscape("#logo");;
+        alignToWindowLandscape("#logo");
     }
 }
