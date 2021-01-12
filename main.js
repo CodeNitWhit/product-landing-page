@@ -59,7 +59,8 @@ function alignScrollIconPortrait(e) {
 
 function hideSections() {
     var winSTop = $(window).scrollTop();
-    var winH = $(window).height() + $("#curved-border").height();
+    var curvedHeight = $("#curved-border").height();
+    var winH = $(window).height() + curvedHeight;
     var winH2 = winH * 3;
     $("#about-section").hide();
     $("#logo-hero").hide();
