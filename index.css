@@ -307,7 +307,6 @@
     padding: 5px;
     background-color: #eaece5;
     margin: 10px;
-    overflow:
 }
 
 .about-sec-item h2 {
@@ -357,4 +356,17 @@
     left:50%;
     transform:translate(-50%, -50%);
     z-index:1;
+}
+
+/*-------------------------Footer-------------------------*/
+#contact-container {
+
+}
+
+#contact-form {
+
+}
+
+.footer-link {
+
 }
