@@ -14,7 +14,6 @@
 </head>
 <body>
     <main>
-        <!--<div id="hidden-sticky-header"></div>-->
         <div id="dropdown">
             <button id="navbtn">
                 <div id="line1" class="menu-btn-line"></div>
@@ -81,10 +80,23 @@
         </section>
         <section id="contact-section" class="full-section fixed-section">
             <div id="contact-container">
-                <div id="contact-form">
-
+                <div id="contact-form" class="colored-border">
+                    
+                    <form>
+                        <h3 id="form-header">Contact Us!</h3><br>
+                        <label for="fname">First name:</label><br>
+                        <input type="text" id="fname" name="fname" value="John"><br>
+                        <label for="lname">Last name:</label><br>
+                        <input type="text" id="lname" name="lname" value="Doe"><br>
+                        <label for="email">Email:</label><br>
+                        <input type="text" id="email" name="email" value="emailaddress@youremail.com"><br><br>
+                        <textarea  name="message" rows="15" cols="60">
+                            Please provide a brief description of your reason for reaching out so we can direct you to the correct person!!
+                        </textarea><br>
+                        <input type="submit" value="Submit">
+                    </form>
                 </div>>
-                <footer>
+                <footer id="footer-container">
                     <a class="footer-link" href="#">Terms and Conditions</a>
                     <a class="footer-link" href="#">Cookie Policy</a>
                     <a class="footer-link" href="#">Site Map</a>
