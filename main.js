@@ -8,6 +8,10 @@ $(document).ready(function() {
         alignEverything();
         hideSections();
     });
+    $(window).on('resize orientationchange', function(){
+        alignEverything();
+        hideSections();
+    });
     $(window).scroll(function() {
         hideSections();
     });
